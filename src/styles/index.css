@@ -1,0 +1,252 @@
+*{
+  margin: 0%;
+  padding: 0%;
+}
+
+#titlebar{
+  background-color: #1b1a1a;
+  -webkit-app-region: drag;
+  -webkit-user-select: none;
+  display: grid;
+  align-items: center;
+  width: 600px;
+}
+
+#button-panel{
+  display: flex;
+  grid-row: 1;
+  grid-column: 3;
+  margin-left: 60%;
+}
+
+
+label{
+  grid-row: 1;
+  grid-column: 1;
+  color: aliceblue;
+  margin-left: 43%;
+  font-size: 20px;
+  font-family: sans-serif;
+  grid-row: 1;
+  grid-column: 2;
+}
+
+img{
+  margin-left: 20px;
+}
+
+
+#quitButton {
+ display: inline-block;
+ width: 50px;
+ height: 40px;
+ border: 1px solid #1b1a1a;
+ position: relative;
+ overflow: hidden;
+ z-index: 1;
+ -webkit-app-region: no-drag;
+ background-color: #1b1a1a;
+}
+
+#quitButton::before,
+#quitButton::after {
+ content: '';
+ position: absolute;
+ top: 0;
+ width: 0;
+ height: 100%;
+ transform: skew(15deg);
+ overflow: hidden;
+ z-index: -1;
+}
+
+
+#quitButton::after {
+ right: -10px;
+ background: #a70000;
+}
+
+#quitButton:hover::before,
+#quitButton:hover::after {
+ width: 150%;
+}
+
+#quitButton:hover span {
+ color: aliceblue;
+ transition: 0.2s;
+}
+
+#quitButton span {
+  color: #a70000;
+  font-size: 18px;
+  transition: all 0.2s ease-in;
+}
+
+
+
+#minimizeButton {
+  padding: 0%;
+  display: inline-block;
+  width: 50px;
+  height: 40px;
+  border: 1px solid #1b1a1a;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s ease-in;
+  z-index: 1;
+  -webkit-app-region: no-drag;
+  background-color: #1b1a1a;
+  padding-bottom: 13px;
+}
+   
+#minimizeButton::before,
+#minimizeButton::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 0;
+  height: 100%;
+  transform: skew(15deg);
+  overflow: hidden;
+  z-index: -1;
+}
+   
+   
+   
+#minimizeButton::after {
+  right: -10px;
+  background: #3f3f3f;
+}
+   
+#minimizeButton:hover::before,
+#minimizeButton:hover::after {
+  width: 150%;
+}
+
+#minimizeButton:hover span {
+  color: aliceblue;
+}
+
+#minimizeButton span {
+  color: aliceblue;
+  font-size: 18px;
+  transition: all 0.2s ease-in;
+}
+
+body{
+  background-color: black;
+}
+
+#menu{
+  display: grid;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+}
+
+#counter{
+  grid-column: 2;
+  margin-top: 23%;
+  margin-left: -72%;
+}
+
+#clock{
+  grid-row: 2;
+  grid-column: 2;
+  margin-left: 10%;
+  margin-top: -85%;
+  -webkit-user-drag: none;
+}
+
+#count{
+  font-size: 60px;
+  font-family: sans-serif;
+  margin-left: 47%;
+}
+
+
+#radiobuttons{
+  grid-row: 1;
+  grid-column: 1;
+  margin-left: 10%;
+  margin-top: 10%;
+}
+
+.radio-item {
+  display: block;
+  position: relative;
+  padding: 0 6px;
+  margin: 20px 0 0;
+}
+
+.radio-item input[type='radio'] {
+  display: none;
+}
+
+.radio-item label {
+  color: aliceblue;
+  font-family:sans-serif;
+  font-size: 40px;
+  margin-left: -5px;
+  margin-bottom: 5px;
+}
+
+.radio-item label:before {
+  content: " ";
+  display: inline-block;
+  position: relative;
+  margin: 0 20px 0 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 15px;
+  border: 5px solid #1b1a1a;
+  background-color: transparent;
+}
+
+.radio-item input[type=radio]:checked + label:after {
+  border-radius: 10px;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  top: 16px;
+  left: 11px;
+  content: " ";
+  display: block;
+  background: aliceblue;
+}
+
+#mainButtons{
+  display: inline-flex;
+  margin-top: 6%;
+}
+
+.button {
+  margin-left: 28%;
+  width: 150px;
+  height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 6px 14px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+  border-radius: 30px;
+  border: none;
+
+  background: #1b1a1a;
+  box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1), inset 0px 0.5px 0.5px rgba(255, 255, 255, 0.5), 0px 0px 0px 0.5px rgba(0, 0, 0, 0.12);
+  color: #DFDEDF;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  font-size: 30px;
+}
+
+#cancel{
+  margin-left: 65%;
+}
+
+.button:focus {
+  box-shadow: inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2), 0px 0.5px 1px rgba(0, 0, 0, 0.1), 0px 0px 0px 3.5px aliceblue;
+  outline: 0;
+}

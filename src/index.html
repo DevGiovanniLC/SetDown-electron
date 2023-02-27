@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <link rel="stylesheet" href="styles/index.css">
+    <script defer src="js/appFunctions.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <title>SetDown</title>
+    <div id="titlebar">
+      <img src=../assets/icon2.png alt="black clock"/>
+      <label>SetDown</label>
+
+      <div id="button-panel">
+          <button id="minimizeButton"><span>_</span></button>
+          <button id="quitButton"><span>X</span></button>
+      </div>
+    </div>
+
+  </head>
+  <body>
+    <div id="menu">
+      <form id="radiobuttons">
+        <div class="radio-item">
+          <input type="radio" id="selection1" name="selection" value="10800" checked>
+          <label for="selection1">3 hours</label>
+        </div>
+
+        <div class="radio-item">
+          <input type="radio" id="selection2" name="selection" value="9000">
+          <label for="selection2">2.5 hours</label>
+        </div>
+        
+        <div class="radio-item">
+          <input type="radio" id="selection3" name="selection" value="7200">  
+          <label for="selection3">2 hours</label>
+        </div>
+
+        <div class="radio-item">
+          <input type="radio" id="selection4" name="selection" value="5400">
+          <label for="selection4">1.5 hours</label>
+        </div>
+
+        <div class="radio-item">
+          <input type="radio" id="selection5" name="selection" value="3600">
+          <label for="selection5">1 hours</label>
+        </div>
+
+        <div class="radio-item">
+          <input type="radio" id="selection6" name="selection" value="1800">
+          <label for="selection6">30 minutes</label>
+        </div>
+      </form>
+      <div id="counter">
+        <label id="count">00:00:00</label>
+      </div>
+      <img src=../assets/icon3.png alt="black clock" id="clock"/>
+    </div>
+
+    <div id="mainButtons">
+      <button class="button" id="accept">Accept</button>
+      <button class="button" id="cancel">Cancel</button>
+    </div>
+    
+  </body>
+</html>

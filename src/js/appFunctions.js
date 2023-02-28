@@ -1,6 +1,5 @@
 const { ipcRenderer} = require('electron')
 const ipc = ipcRenderer;
-const { exec } = require("child_process");
 
 let quitButton = document.getElementById("quitButton");
 let minimizeButton = document.getElementById("minimizeButton");
@@ -8,8 +7,6 @@ let acceptButton = document.getElementById("accept");
 let cancelButton = document.getElementById("cancel");
 let counter = document.querySelector("#count");
 let clock = document.getElementById("clock");
-let intervalo;
-let time = 0;
 
 
 quitButton.addEventListener("click", ()=> {
@@ -20,22 +17,30 @@ minimizeButton.addEventListener("click", ()=> {
     ipc.send('minimize')
 })
 
-acceptButton.addEventListener("click", async ()=> {
+acceptButton.addEventListener("click", ()=> {
     clock.src = "../assets/icon4.png";
-    clearInterval(intervalo);
-    time = validate()
-    intervalo = setInterval(updateCount, 1000);
+    time = validate();
+    console.log(time);
+    ipc.send("accept", time);
 })
 
 cancelButton.addEventListener("click", ()=> {
-  cancel();
   ipc.send('cancel');
+  counter.textContent = "00:00:00";
+  clock.src = "../assets/icon3.png";
 })
 
-ipc.on('cancel', () => {
-  cancel();
+ipc.on('updateCount', (event, string) => {
+    counter.textContent = string;
+  if(string == "00:10:00"){
+    clock.src = "../assets/icon5.png";
+  }
 })
 
+ipc.on('cancel', ()=> {
+    counter.textContent = "00:00:00";
+    clock.src = "../assets/icon3.png";
+});
 
 function validate(){
     var radio = document.getElementsByName('selection');
@@ -44,51 +49,4 @@ function validate(){
             return radio[i].value;
         }
     }
-}
-
-function updateCount() {
-  time--;
-
-  counter.textContent = secondsToString();
-
-  if (time === 0) {
-    clearInterval(intervalo);
-
-    alert("Please");
-
-    exec("shutdown -s -t 0", (error, stdout, stderr) => {
-        if (error) {
-          console.error(`error: ${error.message}`);
-          return;
-        }
-        if (stderr) {
-          console.error(`stderr: ${stderr}`);
-          return;
-        }
-        console.log(`stdout: ${stdout}`);
-      });
-  }
-  if(time == 600){
-    clock.src = "../assets/icon5.png";
-
-    ipc.send('alert')
-  }
-}
-
-function secondsToString(){
-    const hours = ~~(time / 3600);
-    const minutes = ~~((time % 3600)/60);
-    const seconds = ((time % 3600)%60);
-
-    let fecha = new Date(0,0,0,hours, minutes, seconds);
-
-    return fecha.toTimeString().slice(0,8)
-}
-
-function cancel(){
-  clearInterval(intervalo);
-
-  counter.textContent = "00:00:00";
-  
-  clock.src = "../assets/icon3.png";
 }

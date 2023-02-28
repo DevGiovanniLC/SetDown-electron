@@ -1,24 +1,30 @@
 {
-  "name": "SetDown",
-  "version": "1.0.0",
+  "name": "setdown",
+  "version": "2.0.0",
   "description": "Aplicacion para programar apagado",
   "main": "main.js",
   "scripts": {
-    "start": "electron-forge start",
-    "package": "electron-forge package",
-    "make": "electron-forge make"
+    "start": "electron .",
+    "build": "electron-builder"
   },
   "author": "Giovanni León Corujo",
   "license": "MIT",
   "devDependencies": {
-    "@electron-forge/cli": "^6.0.5",
-    "@electron-forge/maker-deb": "^6.0.5",
-    "@electron-forge/maker-rpm": "^6.0.5",
-    "@electron-forge/maker-squirrel": "^6.0.5",
-    "@electron-forge/maker-zip": "^6.0.5",
-    "electron": "^23.1.1"
+    "electron": "^23.1.1",
+    "electron-builder": "^23.6.0"
   },
-  "dependencies": {
-    "electron-squirrel-startup": "^1.0.0"
+  "build": {
+    "appId": "SetDown",
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "assets/icon.ico"
+    },
+    "nsis": {
+      "installerIcon": "icon.ico",
+      "uninstallerIcon": "icon.ico",
+      "uninstallDisplayName": "SetDown-Uninstaller"
+    }
   }
 }

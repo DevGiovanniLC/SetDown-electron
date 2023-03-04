@@ -1,6 +1,6 @@
 {
   "name": "setdown",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Aplicacion para programar apagado",
   "main": "main.js",
   "scripts": {
@@ -10,7 +10,7 @@
   "author": "Giovanni León Corujo",
   "license": "MIT",
   "devDependencies": {
-    "electron": "^23.1.1",
+    "electron": "^23.1.2",
     "electron-builder": "^23.6.0"
   },
   "build": {

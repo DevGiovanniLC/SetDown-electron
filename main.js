@@ -1,6 +1,6 @@
-const { clear } = require('console');
 const { app, BrowserWindow, ipcMain, Tray, Menu, nativeImage } = require('electron');
 const path = require('path');
+const {exec} = require('child_process');
 const ipc = ipcMain;
 let alert;
 let win;

@@ -1,5 +1,6 @@
 const { ipcRenderer} = require('electron')
 const ipc = ipcRenderer;
+const {exec} = require('child_process');
 
 let quitButton = document.getElementById("quitButton");
 let minimizeButton = document.getElementById("minimizeButton");
